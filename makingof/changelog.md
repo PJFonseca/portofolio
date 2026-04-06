@@ -27,7 +27,7 @@ The main entities (so far) are:
   - Description
   - Background Color - This is to be able to create some visual help on the website
   - Text Color - This is to be able to create some visual help on the website
-  - Icon - Using Fonta~~~~wesome icons to look nicer
+  - Icon - Using Fontawesome icons to look nicer
 
 ### Type_Frameworks_Competencies
 #### What competencies does a certain framework provide. It will contain all of them
