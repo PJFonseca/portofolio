@@ -16,7 +16,7 @@ class Course(models.Model):
 
 class Discipline(models.Model):
     # One Discipline exists in one course, I'm assuming every discipline is tailored for that course only
-    courseid = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='courses')
+    Course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='courses')
     code = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     description = models.TextField()
@@ -29,7 +29,7 @@ class Discipline(models.Model):
         return self.name
 
 #This is to include the SFIA framework
-class Type_Frameworks(models.Model):
+class Type_Framework(models.Model):
     code = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     description = models.TextField()
@@ -40,8 +40,8 @@ class Type_Frameworks(models.Model):
     def __str__(self):
         return self.name
 
-class Type_Frameworks_Levels(models.Model):
-    frameworkid = models.ForeignKey(Type_Frameworks, on_delete=models.CASCADE, related_name='frameworks')
+class Type_Frameworks_Level(models.Model):
+    Type_Framework = models.ForeignKey(Type_Framework, on_delete=models.CASCADE, related_name='framework')
     code = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     description = models.TextField()
@@ -54,8 +54,8 @@ class Type_Frameworks_Levels(models.Model):
     def __str__(self):
         return self.name
 
-class Type_Frameworks_Competencies(models.Model):
-    frameworkid = models.ForeignKey(Type_Frameworks, on_delete=models.CASCADE, related_name='frameworks')
+class Type_Frameworks_Competency(models.Model):
+    Type_Framework = models.ForeignKey(Type_Framework, on_delete=models.CASCADE, related_name='framework')
     code = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     description = models.TextField()
@@ -68,8 +68,8 @@ class Type_Frameworks_Competencies(models.Model):
         return self.name
 
 class Type_Frameworks_Competencies_Levels(models.Model):
-    competencyid = models.ForeignKey(Type_Frameworks_Competencies, on_delete=models.CASCADE, related_name='type_frameworks_competencies')
-    levelid = models.ForeignKey(Type_Frameworks_Levels, on_delete=models.CASCADE, related_name='type_frameworks_levels')
+    Type_Frameworks_Competency = models.ForeignKey(Type_Frameworks_Competency, on_delete=models.CASCADE, related_name='type_frameworks_competency')
+    Type_Frameworks_Level = models.ForeignKey(Type_Frameworks_Level, on_delete=models.CASCADE, related_name='type_frameworks_level')
     description = models.TextField()
     background_color = models.CharField(max_length=20)
     text_color = models.CharField(max_length=20)
@@ -77,4 +77,3 @@ class Type_Frameworks_Competencies_Levels(models.Model):
 
     def __str__(self):
         return self.description
-
