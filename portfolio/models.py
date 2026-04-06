@@ -77,3 +77,12 @@ class Type_Frameworks_Competencies_Levels(models.Model):
 
     def __str__(self):
         return self.description
+    
+
+class Teacher(models.Model):
+    Discipline = models.ManyToManyField(Discipline, on_delete=models.CASCADE, related_name='disciplines')
+    name = models.CharField(max_length=200)
+    
+
+    def __str__(self):
+        return self.name
