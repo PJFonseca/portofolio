@@ -41,7 +41,7 @@ class Type_Framework(models.Model):
         return self.name
 
 class Type_Frameworks_Level(models.Model):
-    Type_Framework = models.ForeignKey(Type_Framework, on_delete=models.CASCADE, related_name='framework')
+    Type_Framework = models.ForeignKey(Type_Framework, on_delete=models.CASCADE, related_name='levels')
     code = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     description = models.TextField()
@@ -55,7 +55,7 @@ class Type_Frameworks_Level(models.Model):
         return self.name
 
 class Type_Frameworks_Competency(models.Model):
-    Type_Framework = models.ForeignKey(Type_Framework, on_delete=models.CASCADE, related_name='framework')
+    Type_Framework = models.ForeignKey(Type_Framework, on_delete=models.CASCADE, related_name='competencies')
     code = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     description = models.TextField()
