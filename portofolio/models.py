@@ -11,6 +11,9 @@ class Course(models.Model):
     text_color = models.CharField(max_length=20)
     icon = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 class Discipline(models.Model):
     # One Discipline exists in one course, I'm assuming every discipline is tailored for that course only
     courseid = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='courses')
@@ -22,6 +25,9 @@ class Discipline(models.Model):
     text_color = models.CharField(max_length=20)
     icon = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 #This is to include the SFIA framework
 class Type_Frameworks(models.Model):
     code = models.CharField(max_length=200)
@@ -30,6 +36,9 @@ class Type_Frameworks(models.Model):
     background_color = models.CharField(max_length=20)
     text_color = models.CharField(max_length=20)
     icon = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class Type_Frameworks_Levels(models.Model):
     frameworkid = models.ForeignKey(Type_Frameworks, on_delete=models.CASCADE, related_name='frameworks')
@@ -42,6 +51,9 @@ class Type_Frameworks_Levels(models.Model):
     icon = models.CharField(max_length=100)
     sort = models.IntegerField()
 
+    def __str__(self):
+        return self.name
+
 class Type_Frameworks_Competencies(models.Model):
     frameworkid = models.ForeignKey(Type_Frameworks, on_delete=models.CASCADE, related_name='frameworks')
     code = models.CharField(max_length=200)
@@ -52,6 +64,9 @@ class Type_Frameworks_Competencies(models.Model):
     text_color = models.CharField(max_length=20)
     icon = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 class Type_Frameworks_Competencies_Levels(models.Model):
     competencyid = models.ForeignKey(Type_Frameworks_Competencies, on_delete=models.CASCADE, related_name='type_frameworks_competencies')
     levelid = models.ForeignKey(Type_Frameworks_Levels, on_delete=models.CASCADE, related_name='type_frameworks_levels')
@@ -59,4 +74,7 @@ class Type_Frameworks_Competencies_Levels(models.Model):
     background_color = models.CharField(max_length=20)
     text_color = models.CharField(max_length=20)
     icon = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.description
 
