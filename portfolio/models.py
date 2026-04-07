@@ -90,11 +90,9 @@ class Discipline_Teacher(models.Model):
     Discipline = models.ForeignKey(Discipline, on_delete=models.CASCADE, related_name='discipline_teachers')
     Teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='discipline_teachers')
 
-    def __str__(self):
-        return f"{self.Teacher} - {self.Discipline}"
-
 class Project(models.Model):
     Discipline = models.ForeignKey(Discipline, on_delete=models.CASCADE, related_name='projects')
+    code = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     description = models.TextField()
     date_completed = models.DateField(null=True, blank=True)
@@ -105,3 +103,24 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Technology(models.Model):
+    code = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    logo = models.ImageField(null=True, blank=True, upload_to="media/technologies/")
+    link = models.CharField(max_length=2000)
+    background_color = models.CharField(max_length=20)
+    text_color = models.CharField(max_length=20)
+    icon = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class Discipline_Technology(models.Model):
+    Discipline = models.ForeignKey(Discipline, on_delete=models.CASCADE, related_name='discipline_technologies')
+    Technology = models.ForeignKey(Technology, on_delete=models.CASCADE, related_name='discipline_technologies')
+
+class Project_Technology(models.Model):
+    Project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_technologies')
+    Technology = models.ForeignKey(Technology, on_delete=models.CASCADE, related_name='project_technologies')

@@ -9,7 +9,10 @@ from .models import (
     Type_Frameworks_Competencies_Levels,
     Teacher,
     Discipline_Teacher,
-    Project
+    Project,
+    Technology,
+    Discipline_Technology, 
+    Project_Technology,
 )
 
 class CourseAdmin(admin.ModelAdmin):
@@ -47,15 +50,28 @@ class TeacherAdmin(admin.ModelAdmin):
     ordering = ("name",)
     search_fields = ("name",)
 
-class Discipline_TeacherAdmin(admin.ModelAdmin):
-    list_display = ("Discipline", "Teacher")
-    ordering = ("Discipline", "Teacher")
-    search_fields = ("Discipline__name", "Teacher__name")
+##class Discipline_TeacherAdmin(admin.ModelAdmin):
+##    list_display = ("Discipline", "Teacher")
+##    ordering = ("Discipline", "Teacher")
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ("name", "link")
     ordering = ("name",)
     search_fields = ("name",)
+
+class TechnologyAdmin(admin.ModelAdmin):
+    list_display = ('code', 'name')
+    search_fields = ('code', 'name')
+    list_filter = ('name',)
+
+##class DisciplineTechnologyAdmin(admin.ModelAdmin):
+#    list_display = ('Discipline', 'Technology')
+#    list_filter = ('Discipline', 'Technology')
+#
+#class ProjectTechnologyAdmin(admin.ModelAdmin):
+#    list_display = ('Project', 'Technology')
+#    list_filter = ('Project', 'Technology')
+    
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Discipline, DisciplineAdmin)
@@ -63,6 +79,9 @@ admin.site.register(Type_Framework, Type_FrameworkAdmin)
 admin.site.register(Type_Frameworks_Level, Type_Frameworks_LevelAdmin)
 admin.site.register(Type_Frameworks_Competency, Type_Frameworks_CompetencyAdmin)
 admin.site.register(Type_Frameworks_Competencies_Levels, Type_Frameworks_Competencies_LevelsAdmin)
-admin.site.register(Discipline_Teacher, Discipline_TeacherAdmin)
+#admin.site.register(Discipline_Teacher, Discipline_TeacherAdmin)
 admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(Technology, TechnologyAdmin)
+#admin.site.register(Discipline_Technology, DisciplineTechnologyAdmin)
+#admin.site.register(Project_Technology, ProjectTechnologyAdmin)
