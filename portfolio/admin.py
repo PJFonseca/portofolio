@@ -15,6 +15,7 @@ from .models import (
     Project_Technology,
     Certification_Technology,
     Certification_Competency,
+    FinalProject,
 )
 
 class CourseAdmin(admin.ModelAdmin):
@@ -82,6 +83,11 @@ class CertificationCompetencyAdmin(admin.ModelAdmin):
     list_display = ('Certification', 'Competency', 'Level')
     list_filter = ('Certification', 'Competency', 'Level')
 
+class FinalProjectAdmin(admin.ModelAdmin):
+    list_display = ('title', 'Course', 'year', 'students', 'supervisor', 'rating')
+    search_fields = ('title', 'students', 'supervisor', 'keywords')
+    list_filter = ('Course', 'year', 'rating')
+
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Discipline, DisciplineAdmin)
 admin.site.register(Type_Framework, Type_FrameworkAdmin)
@@ -96,3 +102,4 @@ admin.site.register(Type_Technology, TechnologyAdmin)
 #admin.site.register(Project_Technology, ProjectTechnologyAdmin)
 admin.site.register(Certification_Technology, CertificationTechnologyAdmin)
 admin.site.register(Certification_Competency, CertificationCompetencyAdmin)
+admin.site.register(FinalProject, FinalProjectAdmin)

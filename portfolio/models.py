@@ -133,6 +133,24 @@ class Type_Technology(models.Model):
     def __str__(self):
         return self.name
 
+class FinalProject(models.Model):
+    Course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='final_projects')
+    title = models.CharField(max_length=500)
+    summary = models.TextField()
+    year = models.IntegerField()
+    students = models.CharField(max_length=500)
+    email = models.CharField(max_length=200)
+    supervisor = models.CharField(max_length=200)
+    report_link = models.CharField(max_length=2000, null=True, blank=True)
+    keywords = models.CharField(max_length=500, null=True, blank=True)
+    areas = models.CharField(max_length=500, null=True, blank=True)
+    image = models.CharField(max_length=2000, null=True, blank=True)
+    rating = models.IntegerField(null=True, blank=True)
+    background_color = models.CharField(max_length=20, default='')
+    text_color = models.CharField(max_length=20, default='')
+    icon = models.CharField(max_length=100, default='')
+
+
 class Discipline_Technology(models.Model):
     Discipline = models.ForeignKey(Discipline, on_delete=models.CASCADE, related_name='discipline_technologies')
     Technology = models.ForeignKey(Type_Technology, on_delete=models.CASCADE, related_name='discipline_technologies')
