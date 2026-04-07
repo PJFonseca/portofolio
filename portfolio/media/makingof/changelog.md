@@ -2,6 +2,17 @@
 This is a WIP project and the history will be on the commits
 I do not use AI, simple as that.
 
+
+## Why this?
+
+Since I have some experience in Databases, the probelm to me, is where to stop. Decided the 3NF is the sweet spot.
+Also, this models have already fields to be used on the web, like colors and icons. 
+The CODE field is something I find very usefull, when coding I do NOT want IDs moving around, CODEs will be used. If the BD needs to be regreated for some reason and all the IDs change, the code will continue to work fine.
+
+## The ER Diagram
+Experience tells me that one is better doing it on a DB and tweak it along the way, and that will be documented on screenshot from my DB created for this purpose.
+
+
 ## Structure
 
 The main entities (so far) are:
@@ -110,7 +121,7 @@ The main entities (so far) are:
   - Code - A unique code, because I do not want to be doing code with IDs
   - Name
   - Description
-  - Instrest level - from 1 to 5
+  - Interest level - from 1 to 5
   - Logo - Logo image
   - Link - Link to the project page, if it exists
   - Background Color - This is to be able to create some visual help on the website
