@@ -3,11 +3,18 @@ This is a WIP project and the history will be on the commits
 I do not use AI, simple as that.
 
 
-## Why this?
+## Why?
 
+#### DB
 Since I have some experience in Databases, the probelm to me, is where to stop. Decided the 3NF is the sweet spot.
 Also, this models have already fields to be used on the web, like colors and icons. 
+
+#### Table names so long?
+We do not pay by the character and this why is simpler for everyone reading the DB and also helps alot the Data people when they get a DUMP. The only problem are FKs, but one can alwayys edit them.
+
+#### Code Field
 The CODE field is something I find very usefull, when coding I do NOT want IDs moving around, CODEs will be used. If the BD needs to be regreated for some reason and all the IDs change, the code will continue to work fine.
+
 
 ### Type Tables?
 Yes, I like to separete what is an actual table with data and the ones that are Types. Like Types of Status, Types of Levels, Types of Frameworks and so on. Normally those are my "source data" for other tables.
