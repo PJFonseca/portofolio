@@ -34,7 +34,7 @@ The main entities (so far) are:
 #### What levels exist in a framework
   - ID
   - Frameworkid
-  - Code - A unique code within the Frameworks, because I do not want to be doing code with IDs
+  - Code - A unique code, because I do not want to be doing code with IDs
   - Name
   - Description
   - Value
@@ -47,7 +47,7 @@ The main entities (so far) are:
 #### What competencies does a certain framework provide. It will contain all of them
   - ID
   - Frameworkid
-  - Code - A unique code within the Frameworks, because I do not want to be doing code with IDs
+  - Code - A unique code, because I do not want to be doing code with IDs
   - Name
   - Description
   - Guidance
@@ -59,7 +59,7 @@ The main entities (so far) are:
 #### What competencies does a certain framework provide. It will contain all of them
   - ID
   - Frameworkid
-  - Code - A unique code within the Frameworks, because I do not want to be doing code with IDs
+  - Code - A unique code, because I do not want to be doing code with IDs
   - Name
   - Description
   - Guidance
@@ -80,7 +80,7 @@ The main entities (so far) are:
 #### This table will contain the projects done thru the course, it will be linked with disciplines
 
   - ID
-  - Code - A unique code within the couses, because I do not want to be doing code with IDs
+  - Code - A unique code, because I do not want to be doing code with IDs
   - Name
   - Description
   - Logo - Logo image
@@ -90,7 +90,35 @@ The main entities (so far) are:
   - Icon - Using Fontawesome icons to look nicer
 
 
-- Disciplines
-- Projects
-- Technologies
-- Teachers
+### Disciplines
+#### This table will contain the disciplines
+
+  - ID
+  - Code - A unique code within the disciplines, because I do not want to be doing code with IDs
+  - Name
+  - Description
+  - Background Color - This is to be able to create some visual help on the website
+  - Text Color - This is to be able to create some visual help on the website
+  - Icon - Using Fontawesome icons to look nicer
+
+
+### Tecnologies
+#### This table will contain the tecnologies and they will be linked with disciplnes and projects
+
+  - ID
+  - Code - A unique code, because I do not want to be doing code with IDs
+  - Name
+  - Description
+  - Logo - Logo image
+  - Link - Link to the project page, if it exists
+  - Background Color - This is to be able to create some visual help on the website
+  - Text Color - This is to be able to create some visual help on the website
+  - Icon - Using Fontawesome icons to look nicer
+
+### Teachers
+#### This table will contain all the teachers
+
+  - ID
+  - Name
+  - Photo
+  - Link - Link to the profile page
