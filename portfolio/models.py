@@ -104,6 +104,21 @@ class Project(models.Model):
     def __str__(self):
         return self.name
     
+
+class Certification(models.Model):
+    code = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    date_start = models.DateField(null=True, blank=True)
+    date_completed = models.DateField(null=True, blank=True)
+    link = models.CharField(max_length=2000, null=True, blank=True)
+    background_color = models.CharField(max_length=20)
+    text_color = models.CharField(max_length=20)
+    icon = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+    
 class Type_Technology(models.Model):
     code = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
