@@ -140,3 +140,13 @@ class Discipline_Technology(models.Model):
 class Project_Technology(models.Model):
     Project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='project_technologies')
     Technology = models.ForeignKey(Type_Technology, on_delete=models.CASCADE, related_name='project_technologies')
+
+class Certification_Technology(models.Model):
+    Certification = models.ForeignKey(Certification, on_delete=models.CASCADE, related_name='certification_technologies')
+    Technology = models.ForeignKey(Type_Technology, on_delete=models.CASCADE, related_name='certification_technologies')
+
+
+class Certification_Competency(models.Model):
+    Certification = models.ForeignKey(Certification, on_delete=models.CASCADE, related_name='certification_competencies')
+    Competency = models.ForeignKey(Type_Frameworks_Competency, on_delete=models.RESTRICT, related_name='certification_competencies')
+    Level = models.ForeignKey(Type_Frameworks_Competencies_Levels, on_delete=models.RESTRICT, related_name='certification_competencies')
