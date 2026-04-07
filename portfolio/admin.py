@@ -52,9 +52,9 @@ class TeacherAdmin(admin.ModelAdmin):
     ordering = ("name",)
     search_fields = ("name",)
 
-##class Discipline_TeacherAdmin(admin.ModelAdmin):
-##    list_display = ("Discipline", "Teacher")
-##    ordering = ("Discipline", "Teacher")
+class Discipline_TeacherAdmin(admin.ModelAdmin):
+    list_display = ("Discipline", "Teacher")
+    ordering = ("Discipline", "Teacher")
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ("name", "link")
@@ -66,13 +66,13 @@ class TechnologyAdmin(admin.ModelAdmin):
     search_fields = ('code', 'name')
     list_filter = ('name',)
 
-##class DisciplineTechnologyAdmin(admin.ModelAdmin):
-#    list_display = ('Discipline', 'Technology')
-#    list_filter = ('Discipline', 'Technology')
-#
-#class ProjectTechnologyAdmin(admin.ModelAdmin):
-#    list_display = ('Project', 'Technology')
-#    list_filter = ('Project', 'Technology')
+class DisciplineTechnologyAdmin(admin.ModelAdmin):
+    list_display = ('Discipline', 'Technology')
+    list_filter = ('Discipline', 'Technology')
+
+class ProjectTechnologyAdmin(admin.ModelAdmin):
+    list_display = ('Project', 'Technology')
+    list_filter = ('Project', 'Technology')
     
 class CertificationTechnologyAdmin(admin.ModelAdmin):
     list_display = ('Certification', 'Technology')
