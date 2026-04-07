@@ -165,7 +165,7 @@ The main entities (so far) are:
   - Icon - Using Fontawesome icons to look nicer
 
 ### Final Projects (TFCs)
-#### This table will contain all the final projects done by students of a course. This needs to be refectored later if we wanna use the the 3NF in the DB
+#### This table will contain all the final projects done by students of a course. This needs to be refectored later if we wanna use the the 3NF in the DB. I could also use this as source of data to my tables, like keywords to populate tecnologies, Course name into the courses table, the supervisor to grab the teachers details
 
   - ID
   - Course - Reference to the course this project was done for
