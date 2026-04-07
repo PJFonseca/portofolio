@@ -15,7 +15,14 @@ We do not pay by the character and this why is simpler for everyone reading the 
 Yes, I like to separete what is an actual table with data and the ones that are Types. Like Types of Status, Types of Levels, Types of Frameworks and so on. Normally those are my "source data" for other tables.
 
 #### The ER Diagram
-Experience tells me that one is better doing it on a DB and tweak it along the way, and that will be documented on screenshot from my DB created for this purpose.
+
+One can start with a paper, indeed
+
+![ER Diagram](initial_ER_paper.jpg)
+
+Experience tells me one is better doing it on a DB and tweak it along the way, and that will be documented on screenshot (below) from my DB created for this purpose.
+
+![ER Diagram](ER_DB.png)
 
 #### Code Field
 The CODE field is something I find very usefull, when coding I do NOT want IDs moving around, CODEs will be used. If the BD needs to be regreated for some reason and all the IDs change, the code will continue to work fine.
