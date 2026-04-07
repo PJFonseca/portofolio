@@ -108,6 +108,7 @@ class Technology(models.Model):
     code = models.CharField(max_length=200)
     name = models.CharField(max_length=200)
     description = models.TextField()
+    interest_level = models.IntegerField(default=3)
     logo = models.ImageField(null=True, blank=True, upload_to="media/technologies/")
     link = models.CharField(max_length=2000)
     background_color = models.CharField(max_length=20)

@@ -1,5 +1,6 @@
 ## Intro
 This is a WIP project and the history will be on the commits
+I do not use AI, simple as that.
 
 ## Structure
 
@@ -109,6 +110,7 @@ The main entities (so far) are:
   - Code - A unique code, because I do not want to be doing code with IDs
   - Name
   - Description
+  - Instrest level - from 1 to 5
   - Logo - Logo image
   - Link - Link to the project page, if it exists
   - Background Color - This is to be able to create some visual help on the website
@@ -116,6 +118,15 @@ The main entities (so far) are:
   - Icon - Using Fontawesome icons to look nicer
 
 ### Teachers
+#### This table will contain all the teachers
+
+  - ID
+  - Name
+  - Photo
+  - Link - Link to the profile page
+
+
+### Certifications
 #### This table will contain all the teachers
 
   - ID
