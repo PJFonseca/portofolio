@@ -1,7 +1,7 @@
 # script to download from Lusofona API jsons of all courses and ucs descriptions
 
 import requests, json, os
-schoolYear = '202526'
+schoolYear = '201415'
 
 courses = [
   457, # meisi

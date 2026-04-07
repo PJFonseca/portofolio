@@ -27,6 +27,9 @@ Experience tells me one is better doing it on a DB and tweak it along the way, a
 #### Code Field
 The CODE field is something I find very usefull, when coding I do NOT want IDs moving around, CODEs will be used. If the BD needs to be regreated for some reason and all the IDs change, the code will continue to work fine.
 
+#### API from Lusófona
+The data there is nice, but we are missing some stuff from 2010-14
+
 ## Structure
 
 The main entities (so far) are:

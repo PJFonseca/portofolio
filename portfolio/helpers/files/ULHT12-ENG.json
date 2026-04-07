@@ -629,111 +629,49 @@
     },
     "courseTuitions": [
         {
-            "designation": "Registration",
-            "value": 298,
-            "code": 9
-        },
-        {
-            "designation": "School Insurance",
-            "value": 47,
-            "code": 10
-        },
-        {
-            "value": 360,
-            "code": 11
-        },
-        {
             "designation": "Average monthly value for 30 ECTS semestral curricular units",
-            "value": 440.4
+            "value": 342
         },
         {
             "designation": "Per ECTS",
-            "value": 14.68
+            "value": 11.4
         }
     ],
     "courseApplicationEmoluments": [
         {
-            "designation": "Access - Holders of non-Portuguese courses legally equivalent to Portuguese secondary education",
-            "value": 305,
-            "code": 1514,
-            "candidateType": "T"
-        },
-        {
             "designation": "Access (for candidates with secondary education and national exams)",
-            "value": 223,
+            "value": 178,
             "code": 3,
             "candidateType": "T"
         },
         {
-            "designation": "Change of Institution / Programme",
-            "value": 105,
-            "code": 144,
-            "candidateType": "T"
-        },
-        {
             "designation": "Holders of BA/BSc, MA/MSc or PhD",
-            "value": 223,
+            "value": 178,
             "code": 92,
             "candidateType": "T"
         },
         {
-            "designation": "Holders of secondary education dual certification courses and specialized artistic courses/professional courses",
-            "value": 223,
-            "code": 1266,
-            "candidateType": "T"
-        },
-        {
             "designation": "International student",
-            "value": 400,
-            "code": 1032,
-            "candidateType": "T"
-        },
-        {
-            "designation": "International Student with ENEM",
-            "value": 400,
+            "value": 178,
             "code": 1032,
             "candidateType": "T"
         },
         {
             "designation": "Over the age of 23 (enrolment for internal exame)",
-            "value": 223,
+            "value": 178,
             "code": 603,
             "candidateType": "T"
         },
         {
             "designation": "Over the age of 23 (having done external exam)",
-            "value": 223,
+            "value": 178,
             "code": 6,
             "candidateType": "T"
         },
         {
-            "designation": "Applying for Readmission",
-            "value": 105,
-            "code": 23,
-            "candidateType": "T"
-        },
-        {
             "designation": "External Students",
-            "value": 425,
-            "code": 1423,
-            "candidateType": "R"
-        },
-        {
-            "designation": "External Students",
-            "value": 625,
-            "code": 1424,
-            "candidateType": "E"
-        },
-        {
-            "designation": "CET Holders",
-            "value": 223,
-            "code": 1041,
-            "candidateType": "T"
-        },
-        {
-            "designation": "CTeSP Holders",
-            "value": 223,
-            "code": 1041,
+            "value": 0,
+            "code": 620,
             "candidateType": "T"
         }
     ],
