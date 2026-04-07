@@ -163,3 +163,23 @@ The main entities (so far) are:
   - Background Color - This is to be able to create some visual help on the website
   - Text Color - This is to be able to create some visual help on the website
   - Icon - Using Fontawesome icons to look nicer
+
+### Final Projects (TFCs)
+#### This table will contain all the final projects done by students of a course. This needs to be refectored later if we wanna use the the 3NF in the DB
+
+- ID
+- Course - Reference to the course this project was done for
+- Title - 
+- Summary - 
+- Year - 
+- Students - 
+- Email - 
+- Supervisor - The name of the project supervisor
+- Report Link - Link to the project report, if it exists
+- Keywords - Semicolon-separated keywords that describe the project
+- Areas - Semicolon-separated areas of knowledge covered by the project
+- Image - Link to the project image, if it exists
+- Rating - A numeric rating for the project
+- Background Color - This is to be able to create some visual help on the website
+- Text Color - This is to be able to create some visual help on the website
+- Icon - Using Fontawesome icons to look nicer
