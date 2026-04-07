@@ -2,7 +2,6 @@
 This is a WIP project and the history will be on the commits
 I do not use AI, simple as that.
 
-
 ## Why?
 
 #### DB
@@ -12,16 +11,14 @@ Also, this models have already fields to be used on the web, like colors and ico
 #### Table names so long?
 We do not pay by the character and this why is simpler for everyone reading the DB and also helps alot the Data people when they get a DUMP. The only problem are FKs, but one can alwayys edit them.
 
-#### Code Field
-The CODE field is something I find very usefull, when coding I do NOT want IDs moving around, CODEs will be used. If the BD needs to be regreated for some reason and all the IDs change, the code will continue to work fine.
-
-
-### Type Tables?
+#### Type Tables?
 Yes, I like to separete what is an actual table with data and the ones that are Types. Like Types of Status, Types of Levels, Types of Frameworks and so on. Normally those are my "source data" for other tables.
 
-## The ER Diagram
+#### The ER Diagram
 Experience tells me that one is better doing it on a DB and tweak it along the way, and that will be documented on screenshot from my DB created for this purpose.
 
+#### Code Field
+The CODE field is something I find very usefull, when coding I do NOT want IDs moving around, CODEs will be used. If the BD needs to be regreated for some reason and all the IDs change, the code will continue to work fine.
 
 ## Structure
 
