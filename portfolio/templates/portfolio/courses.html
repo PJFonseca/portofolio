@@ -1,0 +1,16 @@
+{% extends "../base.html" %}
+    
+{% block content %}
+<h2>courses</h2>
+
+<section>
+    {% for course in courses %}
+    <article>
+        <header>
+            <h3>{{ course.code }}</h3>
+            <p>{{ course.name }}</p>
+        </header>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
