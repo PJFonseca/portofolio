@@ -1,14 +1,14 @@
 {% extends "../base.html" %}
     
 {% block content %}
-<h2>courses</h2>
+<h2>Disciplines</h2>
 
 <section>
-    {% for course in courses %}
+    {% for discipline in disciplines %}
     <article>
         <header>
-            <h3>{{ course.code }}</h3>
-            <p>{{ course.name }}</p>
+            <h3>{{ discipline.code }}</h3>
+            <p>{{ discipline.name }}</p>
         </header>
     </article>
     {% endfor %}

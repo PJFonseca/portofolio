@@ -2,9 +2,9 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from .models import Course, Discipline
+from .models import Discipline
 
 
-def courses_view(request):
-    courses = Discipline.objects.all()
-    return render(request, 'portfolio/courses.html', {'courses': courses})
+def disciplines_view(request):
+    disciplines = Discipline.objects.all()
+    return render(request, 'portfolio/disciplines.html', {'disciplines': disciplines})
