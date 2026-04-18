@@ -16,7 +16,11 @@
             <h4>Cursos</h4>
             <ul>
                 {% for curso in professor.cursos.all %}
-                    <li>{{ curso.nome }}</li>
+                    <li>
+                        <a href="{% url 'curso' curso.id %}">
+                            {{ curso.nome }}
+                        </a>
+                    </li>
                 {% empty %}
                     <li>Sem cursos inscritos</li>
                 {% endfor %}

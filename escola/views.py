@@ -13,6 +13,10 @@ def cursos_view(request):
     
     return render(request, 'escola/cursos.html', {'cursos': cursos})
 
+def curso_view(request, id):
+    curso=Curso.objects.get(id=id)       
+    return render(request, 'escola/curso.html', {'curso': curso})
+
 def professores_view(request):
 
     professores = Professor.objects.prefetch_related('cursos').all()
