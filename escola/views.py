@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.shortcuts import render
 from .models import Curso
 from .models import Professor
+from .models import Aluno
 
 def cursos_view(request):
 
@@ -15,5 +16,9 @@ def cursos_view(request):
 def professores_view(request):
 
     professores = Professor.objects.prefetch_related('cursos').all()
-    
     return render(request, 'escola/professores.html', {'professores': professores})
+
+def alunos_view(request):
+
+    alunos = Aluno.objects.prefetch_related('cursos').all()
+    return render(request, 'escola/alunos.html', {'alunos': alunos})
