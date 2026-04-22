@@ -1,0 +1,18 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<h2>Changelog</h2>
+<section>
+{% for commit in commits %}
+<article>
+    <header style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <h3>{{ commit.commit.message }}</h3>
+            <small>{{ commit.commit.author.date }}</small>
+        </div>
+        <small>{{ commit.commit.author.name }}</small>
+    </header>
+</article>
+{% endfor %}
+</section>
+{% endblock %}
