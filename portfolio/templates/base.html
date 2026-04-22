@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Pedro Fonseca - Portfolio</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
+
 <body>
     <header>
-        <h1>Portfolio</h1>
+        <h1><a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Portfolio</a></h1>
         <nav>
-           <!-- <a href="{% url 'cursos' %}">Cursos</a>
-            <a href="{% url 'professores' %}">Professores</a>
-            <a href="{% url 'alunos' %}">Alunos</a> -->
+           <!--<a href="{% url 'cursos' %}">Cursos</a> -->
+            <a href="">Projects</a>
+            <a href="">Competencies</a>
+            <a href="{% url 'disciplines' %}">Disciplines</a>
+            <a href="">Teachers</a>
         </nav>
     </header>
 
