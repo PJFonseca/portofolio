@@ -2,15 +2,17 @@
     
 {% block content %}
 <h2>Disciplines</h2>
-
 <section>
-    {% for discipline in disciplines %}
-    <article>
-        <header>
-            <h3>{{ discipline.name }}</h3>
-            <small>{{ discipline.code }}</small>
-        </header>
-    </article>
-    {% endfor %}
+{% for discipline in disciplines %}
+<article>
+<header style="display: flex; justify-content: space-between; align-items: center;">
+    <div>
+        <h3>{{ discipline.name }}</h3>
+        <small>{{ discipline.code }}</small>
+    </div>
+    <span style="font-size: 3rem; font-weight: bold;">{{ discipline.finalgrade }}</span>
+</header>
+</article>
+{% endfor %}
 </section>
 {% endblock %}

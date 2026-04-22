@@ -11,13 +11,15 @@
 
 <body>
     <header>
-        <h1><a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Portfolio</a></h1>
+        <h1> Portfolio</a><br><small>Pedro Fonseca</small></h1>
         <nav>
            <!--<a href="{% url 'cursos' %}">Cursos</a> -->
-            <a href="">Projects</a>
-            <a href="">Competencies</a>
-            <a href="{% url 'disciplines' %}">Disciplines</a>
-            <a href="">Teachers</a>
+            <a href="{% url 'home' %}" style="text-decoration:none"><i class="fa-solid fa-house"></i></i> Home</a>
+            <a href=""><i class="fa-solid fa-project-diagram"></i> Projects</a>
+            <a href="{% url 'disciplines' %}"><i class="fad fa-book"></i> Disciplines</a>
+            <a href=""><i class="fa-solid fa-laptop-code"></i> Tecnologies</a>
+            <a href=""><i class="fa-solid fa-tasks"></i> Competencies</a>
+            <a href=""><i class="fa-solid fa-chalkboard-teacher"></i> Teachers</a>
         </nav>
     </header>
 
