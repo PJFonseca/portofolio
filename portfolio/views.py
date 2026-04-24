@@ -15,6 +15,17 @@ def disciplines_view(request):
 
 def changelog_view(request):
     url = 'https://api.github.com/repos/PJFonseca/portfolio/commits'
-    response = requests.get(url)
-    commits = response.json()
-    return render(request, 'portfolio/changelog.html', {'commits': commits})
+    all_commits = []
+
+    while url:
+        response = requests.get(url, params={'per_page': 100})
+        all_commits.extend(response.json())
+        url = response.links.get('next', {}).get('url')
+
+    # Sort by date, newest first
+    all_commits.sort(
+        key=lambda c: c['commit']['author']['date'],
+        reverse=True
+    )
+
+    return render(request, 'portfolio/changelog.html', {'commits': all_commits})
