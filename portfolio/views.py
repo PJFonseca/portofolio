@@ -18,7 +18,7 @@ def changelog_view(request):
     all_commits = []
 
     while url:
-        response = requests.get(url, params={'per_page': 100})
+        response = requests.get(url, params={'per_page': 1000})
         all_commits.extend(response.json())
         url = response.links.get('next', {}).get('url')
 

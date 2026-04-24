@@ -1,2 +1,67 @@
 {% extends "../base.html" %}
-    
+
+{% block content %}
+<div class="py-5">
+
+  <span class="badge text-bg-secondary fw-normal mb-4">Projeto Final · Programação Web</span>
+
+  <h1 class="fw-medium mb-3">Portfólio académico</h1>
+
+  <p class="text-secondary mb-5" style="max-width: 520px; line-height: 1.7;">
+    Uma aplicação Django que agrega o percurso académico — cursos, disciplinas, projetos, certificações e competências — num único lugar.
+  </p>
+
+  <div class="row g-3 mb-5">
+    <div class="col-sm-6 col-lg-3">
+      <div class="card h-100 border">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <div class="rounded-circle" style="width:8px; height:8px; background:#378ADD; flex-shrink:0;"></div>
+            <p class="fw-medium mb-0 small">Cursos & disciplinas</p>
+          </div>
+          <p class="text-secondary mb-0 small">Registo de unidades curriculares e notas finais.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+      <div class="card h-100 border">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <div class="rounded-circle" style="width:8px; height:8px; background:#1D9E75; flex-shrink:0;"></div>
+            <p class="fw-medium mb-0 small">Projetos</p>
+          </div>
+          <p class="text-secondary mb-0 small">Trabalhos realizados por disciplina, com links e tecnologias.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+      <div class="card h-100 border">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <div class="rounded-circle" style="width:8px; height:8px; background:#7F77DD; flex-shrink:0;"></div>
+            <p class="fw-medium mb-0 small">Certificações</p>
+          </div>
+          <p class="text-secondary mb-0 small">Formações externas e competências SFIA associadas.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+      <div class="card h-100 border">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <div class="rounded-circle" style="width:8px; height:8px; background:#EF9F27; flex-shrink:0;"></div>
+            <p class="fw-medium mb-0 small">Tecnologias</p>
+          </div>
+          <p class="text-secondary mb-0 small">Stack técnica com nível de interesse por área.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-top pt-4 d-flex justify-content-between align-items-center">
+    <p class="text-secondary small mb-0">Construído com Django · ORM · SQLite</p>
+    <a href="{% url 'courses' %}" class="small fw-medium text-decoration-none">Explorar →</a>
+  </div>
+
+</div>
+{% endblock %}
