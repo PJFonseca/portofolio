@@ -1,0 +1,115 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="mb-0">{{ action }} Project</h2>
+  <a href="{% url 'projects' %}" class="btn btn-outline-secondary btn-sm">
+    <i class="fa-solid fa-arrow-left me-1"></i> Back
+  </a>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <form method="POST" enctype='multipart/form-data'>
+      {% csrf_token %}
+
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label class="form-label">Discipline <span class="text-danger">*</span></label>
+          <select name="Discipline" class="form-select" required>
+            <option value="">-- Select a discipline --</option>
+            {% for discipline in disciplines %}
+            <option value="{{ discipline.id }}" {% if project.Discipline.id == discipline.id %}selected{% endif %}>
+              {{ discipline.name }}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Code <span class="text-danger">*</span></label>
+          <input type="text" name="code" class="form-control" value="{{ project.code }}" required>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Date Completed</label>
+          <input type="date" name="date_completed" class="form-control" value="{{ project.date_completed|date:'Y-m-d' }}">
+        </div>
+
+        <div class="col-md-8">
+          <label class="form-label">Name <span class="text-danger">*</span></label>
+          <input type="text" name="name" class="form-control" value="{{ project.name }}" required>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Link</label>
+          <input type="url" name="link" class="form-control" value="{{ project.link }}" placeholder="https://...">
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Description</label>
+          <textarea name="description" class="form-control" rows="3">{{ project.description }}</textarea>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Background Color</label>
+          <div class="input-group">
+            <input type="color" name="background_color" class="form-control form-control-color"
+              value="{{ project.background_color|default:'#ffffff' }}">
+            <input type="text" name="background_color_text" class="form-control"
+              value="{{ project.background_color }}" placeholder="#ffffff">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Text Color</label>
+          <div class="input-group">
+            <input type="color" name="text_color" class="form-control form-control-color"
+              value="{{ project.text_color|default:'#000000' }}">
+            <input type="text" name="text_color_text" class="form-control"
+              value="{{ project.text_color }}" placeholder="#000000">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Icon</label>
+          <div class="input-group mb-2">
+            <span class="input-group-text"><i id="icon-preview" class="{{ project.icon|default:'fa-solid fa-project-diagram' }}"></i></span>
+            <input type="text" name="icon" id="icon-input" class="form-control"
+              value="{{ project.icon }}" placeholder="fa-solid fa-project-diagram" readonly>
+          </div>
+          <input type="text" id="icon-search" class="form-control mb-2" placeholder="Search icons...">
+          <div id="icon-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; max-height: 200px; overflow-y: auto; border: 1px solid #dee2e6; border-radius: 8px; padding: 8px;">
+          </div>
+          <small class="text-secondary">Click an icon to select it.</small>
+        </div>
+
+      </div>
+
+      <div class="d-flex gap-2 mt-4">
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-save me-1"></i> Save
+        </button>
+        <a href="{% url 'projects' %}" class="btn btn-outline-secondary">Cancel</a>
+        <button type="button" class="btn btn-warning btn-sm" onclick="fillDummyData()">
+        <i class="fa-solid fa-wand-magic-sparkles me-1"></i> Fill Dummy Data
+      </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  function fillDummyData() {
+    fillDummyDataGeneric({
+      'code': 'PROJ-' + Math.floor(Math.random() * 1000),
+      'name': 'Sample Project ' + Math.floor(Math.random() * 100),
+    });
+  }
+</script>
+{% endblock %}

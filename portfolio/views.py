@@ -2,12 +2,17 @@ import requests
 import json
 import os
 from django.conf import settings
+
 from django.shortcuts import render, redirect, get_object_or_404
+
+from portfolio.forms import ProjectForm
+
+from portfolio.forms import ProjectForm
 
 
 CACHE_FILE = os.path.join(settings.BASE_DIR, 'changelog_cache.json')
 
-from .models import Discipline, Course
+from .models import Discipline, Course, Project, Certification, Type_Technology, Teacher, Discipline_Teacher, FinalProject
 
 def index_view(request):
     return render(request, 'portfolio/index.html')
@@ -16,43 +21,37 @@ def disciplines_view(request):
     disciplines = Discipline.objects.all()
     return render(request, 'portfolio/disciplines.html', {'disciplines': disciplines})
 
+from .forms import DisciplineForm
+
 def discipline_create(request):
-    if request.method == 'POST':
-        Discipline.objects.create(
-            Course_id=request.POST['course'],
-            code=request.POST['code'],
-            name=request.POST['name'],
-            description=request.POST['description'],
-            ects=request.POST['ects'],
-            finalgrade=request.POST['finalgrade'],
-            background_color=request.POST['background_color'],
-            text_color=request.POST['text_color'],
-            icon=request.POST['icon'],
-        )
+    form = DisciplineForm(request.POST or None)
+
+    print(f"Request method: {request.method}")
+    print(f"Form is valid: {form.is_valid()}")
+    print(f"Form errors: {form.errors}")
+    print(f"POST data: {request.POST}")
+
+    if form.is_valid():
+        form.save()
         return redirect('disciplines')
-    
-    courses = Course.objects.all()
-    return render(request, 'portfolio/discipline_form.html', {'courses': courses, 'action': 'Create'})
+
+    courses = Course.objects.all().order_by('name')
+    return render(request, 'portfolio/discipline_form.html', {'courses': courses, 'form': form, 'action': 'Create'})
 
 
 def discipline_edit(request, id):
     discipline = get_object_or_404(Discipline, id=id)
-    
-    if request.method == 'POST':
-        discipline.Course_id = request.POST['course']
-        discipline.code = request.POST['code']
-        discipline.name = request.POST['name']
-        discipline.description = request.POST['description']
-        discipline.ects = request.POST['ects']
-        discipline.finalgrade = request.POST['finalgrade']
-        discipline.background_color = request.POST['background_color']
-        discipline.text_color = request.POST['text_color']
-        discipline.icon = request.POST['icon']
-        discipline.save()
-        return redirect('disciplines')
-    
-    courses = Course.objects.all()
-    return render(request, 'portfolio/discipline_form.html', {'discipline': discipline, 'courses': courses, 'action': 'Edit'})
+
+    if request.POST:
+        form = DisciplineForm(request.POST, request.FILES, instance=discipline)
+        if form.is_valid():
+            form.save()
+            return redirect('disciplines')
+    else:
+        form = DisciplineForm(instance=discipline)
+
+    courses = Course.objects.all().order_by('name')
+    return render(request, 'portfolio/discipline_form.html', {'form': form, 'courses': courses, 'discipline': discipline, 'action': 'Edit'})
 
 
 def discipline_delete(request, id):
@@ -64,7 +63,54 @@ def discipline_delete(request, id):
     
     return render(request, 'portfolio/discipline_confirm_delete.html', {'discipline': discipline})
 
+def projects_view(request):
+    projects = Project.objects.all() 
+    print(f"Projects count: {projects.count()}")
+    print(f"Projects: {list(projects)}")
+    return render(request, 'portfolio/projects.html', {'projects': projects})
 
+def project_create(request):
+    form = ProjectForm(request.POST or None)
+
+    print(f"Request method: {request.method}")
+    print(f"Form is valid: {form.is_valid()}")
+    print(f"Form errors: {form.errors}")
+    print(f"POST data: {request.POST}")
+
+    if form.is_valid():
+        form.save()
+        return redirect('projects')
+
+    disciplines = Discipline.objects.all().order_by('name')
+    return render(request, 'portfolio/project_form.html', {'disciplines': disciplines, 'form': form, 'action': 'Create'})
+
+def project_edit(request, id):
+    project = get_object_or_404(Project, id=id)
+
+    if request.POST:
+        form = ProjectForm(request.POST, request.FILES, instance=project)
+        if form.is_valid():
+            form.save()
+            return redirect('projects')
+    else:
+        form = ProjectForm(instance=project)
+
+    disciplines = Discipline.objects.all().order_by('name')
+    return render(request, 'portfolio/project_form.html', {
+        'disciplines': disciplines,
+        'form': form,
+        'project': project,
+        'action': 'Edit'
+    })
+
+def project_delete(request, id):
+    project = get_object_or_404(Project, id=id)
+    
+    if request.method == 'POST':
+        project.delete()
+        return redirect('projects')
+    
+    return render(request, 'portfolio/project_confirm_delete.html', {'project': project})
 
 #Done with AI help :)
 def changelog_view(request):
