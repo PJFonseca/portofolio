@@ -32,11 +32,6 @@ def changelog_view(request):
             return False
         return True
 
-    headers = {
-        'Accept': 'application/vnd.github+json',
-        'Authorization': f'Bearer {settings.GITHUB_TOKEN}'
-    }
-
     # Load existing cache
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE, 'r') as f:
