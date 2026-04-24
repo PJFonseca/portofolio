@@ -7,7 +7,9 @@
 <article>
   <header style="display: flex; justify-content: space-between; align-items: center;">
     <div>
-      <h3>{{ commit.commit.message }}</h3>
+      <h3>
+        <a href="{{ commit.html_url }}" target="_blank">{{ commit.commit.message }}</a>
+      </h3>
       <small>{{ commit.commit.author.date }}</small>
     </div>
     <small>{{ commit.commit.author.name }}</small>
@@ -16,10 +18,9 @@
   {% if commit.files %}
   <div style="margin-top: 0.5rem;">
     <small class="text-secondary">
-      {{ commit.stats.total }} changes &nbsp;·&nbsp;
+      {{ commit.files|length }} file(s) changed &nbsp;·&nbsp;
       <span class="text-success">+{{ commit.stats.additions }}</span> &nbsp;
-      <span class="text-danger">-{{ commit.stats.deletions }}</span> &nbsp;·&nbsp;
-      {{ commit.files|length }} file(s)
+      <span class="text-danger">-{{ commit.stats.deletions }}</span>
     </small>
     <ul style="margin-top: 0.25rem; font-size: 0.8rem; color: #888;">
       {% for file in commit.files %}
@@ -31,7 +32,6 @@
     </ul>
   </div>
   {% endif %}
-
 </article>
 {% endfor %}
 </section>
