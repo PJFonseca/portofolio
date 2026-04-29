@@ -4,11 +4,9 @@ import os
 from django.conf import settings
 
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required       
 
 from portfolio.forms import ProjectForm
-
-from portfolio.forms import ProjectForm
-
 
 CACHE_FILE = os.path.join(settings.BASE_DIR, 'changelog_cache.json')
 
@@ -19,10 +17,16 @@ def index_view(request):
 
 def disciplines_view(request):
     disciplines = Discipline.objects.all()
-    return render(request, 'portfolio/disciplines.html', {'disciplines': disciplines})
+    is_gestor = request.user.groups.filter(name='gestor-portfolio').exists()
+    context = {
+        'disciplines': disciplines,
+        'is_gestor': is_gestor,
+    }
+    return render(request, 'portfolio/disciplines.html', context)
 
 from .forms import DisciplineForm
 
+@login_required
 def discipline_create(request):
     form = DisciplineForm(request.POST or None)
 
@@ -38,7 +42,7 @@ def discipline_create(request):
     courses = Course.objects.all().order_by('name')
     return render(request, 'portfolio/discipline_form.html', {'courses': courses, 'form': form, 'action': 'Create'})
 
-
+@login_required
 def discipline_edit(request, id):
     discipline = get_object_or_404(Discipline, id=id)
 
@@ -53,7 +57,7 @@ def discipline_edit(request, id):
     courses = Course.objects.all().order_by('name')
     return render(request, 'portfolio/discipline_form.html', {'form': form, 'courses': courses, 'discipline': discipline, 'action': 'Edit'})
 
-
+@login_required
 def discipline_delete(request, id):
     discipline = get_object_or_404(Discipline, id=id)
     
@@ -69,6 +73,7 @@ def projects_view(request):
     print(f"Projects: {list(projects)}")
     return render(request, 'portfolio/projects.html', {'projects': projects})
 
+@login_required
 def project_create(request):
     form = ProjectForm(request.POST or None)
 
@@ -84,6 +89,7 @@ def project_create(request):
     disciplines = Discipline.objects.all().order_by('name')
     return render(request, 'portfolio/project_form.html', {'disciplines': disciplines, 'form': form, 'action': 'Create'})
 
+@login_required
 def project_edit(request, id):
     project = get_object_or_404(Project, id=id)
 
@@ -103,6 +109,7 @@ def project_edit(request, id):
         'action': 'Edit'
     })
 
+@login_required
 def project_delete(request, id):
     project = get_object_or_404(Project, id=id)
     
