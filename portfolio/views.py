@@ -71,7 +71,10 @@ def projects_view(request):
     projects = Project.objects.all() 
     print(f"Projects count: {projects.count()}")
     print(f"Projects: {list(projects)}")
-    return render(request, 'portfolio/projects.html', {'projects': projects})
+
+    is_gestor = request.user.groups.filter(name='gestor-portfolio').exists()
+    
+    return render(request, 'portfolio/projects.html', {'projects': projects, 'is_gestor': is_gestor})
 
 @login_required
 def project_create(request):

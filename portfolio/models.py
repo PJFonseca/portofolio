@@ -68,7 +68,7 @@ class Type_Frameworks_Competency(models.Model):
     def __str__(self):
         return self.name
 
-class Type_Frameworks_Competencies_Level(models.Model):
+class Type_Frameworks_Competencies_Levels(models.Model):
     Type_Frameworks_Competency = models.ForeignKey(Type_Frameworks_Competency, on_delete=models.CASCADE, related_name='type_frameworks_competencies_levels')
     Type_Frameworks_Level = models.ForeignKey(Type_Frameworks_Level, on_delete=models.CASCADE, related_name='type_frameworks_competencies_levels')
     description = models.TextField(blank=True, default='')
@@ -168,4 +168,4 @@ class Certification_Technology(models.Model):
 class Certification_Competency(models.Model):
     Certification = models.ForeignKey(Certification, on_delete=models.CASCADE, related_name='certification_competencies')
     Competency = models.ForeignKey(Type_Frameworks_Competency, on_delete=models.RESTRICT, related_name='certification_competencies')
-    Level = models.ForeignKey(Type_Frameworks_Competencies_Level, on_delete=models.RESTRICT, related_name='certification_competencies')
+    Level = models.ForeignKey(Type_Frameworks_Competencies_Levels, on_delete=models.RESTRICT, related_name='certification_competencies')

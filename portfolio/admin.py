@@ -6,7 +6,7 @@ from .models import (
     Type_Framework,
     Type_Frameworks_Level,
     Type_Frameworks_Competency,
-    Type_Frameworks_Competencies_Level,
+    Type_Frameworks_Competencies_Levels,
     Teacher,
     Discipline_Teacher,
     Project,
@@ -93,7 +93,7 @@ admin.site.register(Discipline, DisciplineAdmin)
 admin.site.register(Type_Framework, Type_FrameworkAdmin)
 admin.site.register(Type_Frameworks_Level, Type_Frameworks_LevelAdmin)
 admin.site.register(Type_Frameworks_Competency, Type_Frameworks_CompetencyAdmin)
-admin.site.register(Type_Frameworks_Competencies_Level, Type_Frameworks_Competencies_LevelsAdmin)
+admin.site.register(Type_Frameworks_Competencies_Levels, Type_Frameworks_Competencies_LevelsAdmin)
 #admin.site.register(Discipline_Teacher, Discipline_TeacherAdmin)
 admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Project, ProjectAdmin)
