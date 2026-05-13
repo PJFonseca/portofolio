@@ -3,11 +3,11 @@
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
   <h2 class="mb-0">Disciplines</h2>
-  {% if is_gestor %}
+  <!--{% if is_gestor %}-->
   <a href="{% url 'discipline_create' %}" class="btn btn-primary btn-sm">
     <i class="fa-solid fa-plus me-1"></i> New Discipline
   </a>
-  {% endif %}
+  <!--{% endif %}-->
 </div>
 <section>
   {% for discipline in disciplines %}

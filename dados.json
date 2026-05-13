@@ -1,1 +1,1 @@
-[]
+[{"model": "portfolio.course", "pk": 1, "fields": {"code": "LIG", "name": "Lig", "description": "", "ects": 15, "background_color": "#000", "text_color": "#FFF", "icon": "fal loop"}}]

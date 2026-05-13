@@ -28,7 +28,7 @@ class Discipline(models.Model):
 
     def __str__(self):
         return self.name
-
+    
 #This is to include the SFIA framework
 class Type_Framework(models.Model):
     code = models.CharField(max_length=200)

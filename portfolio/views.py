@@ -4,7 +4,8 @@ import os
 from django.conf import settings
 
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required       
+from django.contrib.auth.decorators import login_required     
+from .forms import DisciplineForm  
 
 from portfolio.forms import ProjectForm
 
@@ -24,7 +25,6 @@ def disciplines_view(request):
     }
     return render(request, 'portfolio/disciplines.html', context)
 
-from .forms import DisciplineForm
 
 @login_required
 def discipline_create(request):
